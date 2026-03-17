@@ -1,0 +1,142 @@
+[
+  {
+    "id": "ai-tech",
+    "title": "AI Tech Website",
+    "description": "A modern AI-focused technology showcase featuring clean aesthetics and interactive components.",
+    "path": "projects/ai-tech/index.html",
+    "tag": "AI Tech",
+    "stack": ["HTML", "CSS", "JS"],
+    "details": "This project showcases cutting-edge AI technologies with a focus on performance and minimalist design.",
+    "steps": ["Initialize repository", "Design UI/UX", "Implement core components", "Optimize for performance"]
+  },
+  {
+    "id": "3d-maze",
+    "title": "3D Maze Escape",
+    "description": "An immersive 3D maze escape game built for the web.",
+    "path": "projects/3d-maze/index.html",
+    "tag": "Game Dev",
+    "stack": ["HTML", "WebGL"],
+    "details": "A first-person perspective maze game featuring procedural generation and spatial sound.",
+    "steps": ["Setup 3D engine", "Generate maze algorithm", "Implement player controls", "Add lighting and textures"]
+  },
+  {
+    "id": "fps-shooter",
+    "title": "FPS Shooter 360",
+    "description": "Browser-based first-person engine with spatial audio and dynamic lighting.",
+    "path": "projects/fps-shooter/index.html",
+    "tag": "WebGL",
+    "stack": ["HTML", "WebGL", "JS"],
+    "details": "A high-performance FPS engine that runs entirely in the browser using WebGL.",
+    "steps": ["Build physics engine", "Create 3D assets", "Implement shooting mechanics", "Optimize rendering"]
+  },
+  {
+    "id": "it-showcase",
+    "title": "IT Project Showcase",
+    "description": "Comprehensive directory of high-performance engineering projects.",
+    "path": "projects/it-showcase/index.html",
+    "tag": "Showcase",
+    "stack": ["HTML", "CSS", "JS"],
+    "details": "A portal designed to aggregate and showcase various IT projects with detailed metrics.",
+    "steps": ["Design grid layout", "Implement filtering", "Add project detail views", "Automate content generation"]
+  },
+  {
+    "id": "nextgen-portal",
+    "title": "NextGen IT Portal",
+    "description": "A futuristic portal for managing and exploring IT ecosystems.",
+    "path": "projects/nextgen-portal/index.html",
+    "tag": "Infrastructure",
+    "stack": ["HTML", "Node.js", "CSS"],
+    "details": "Focuses on infrastructure management and real-time system monitoring.",
+    "steps": ["Setup backend server", "Design real-time dashboard", "Implement API integrations", "Deploy with CI/CD"]
+  },
+  {
+    "id": "payment-store",
+    "title": "Payment Store",
+    "description": "Secure and efficient e-commerce payment integration platform.",
+    "path": "projects/payment-store/index.html",
+    "tag": "E-Commerce",
+    "stack": ["HTML", "CSS", "JS"],
+    "details": "A template for modern e-commerce stores with multi-step payment flows.",
+    "steps": ["Design product grid", "Implement shopping cart", "Integrate payment gateway", "Secure checkout process"]
+  },
+  {
+    "id": "reseller",
+    "title": "Reseller Platform",
+    "description": "Automated commerce ecosystem for resellers and digital products.",
+    "path": "projects/reseller/index.html",
+    "tag": "Commerce",
+    "stack": ["HTML", "Node.js", "Capacitor"],
+    "details": "A platform for managing reseller activities and automated product delivery.",
+    "steps": ["Architect database", "Build admin panel", "Implement reseller logic", "Mobile app integration"]
+  },
+  {
+    "id": "seller-payment",
+    "title": "Seller Payment Site",
+    "description": "A dedicated site for sellers to manage payments and transactions.",
+    "path": "projects/seller-payment/index.html",
+    "tag": "Finance",
+    "stack": ["HTML", "CSS", "JS"],
+    "details": "Focuses on transaction transparency and financial reporting for sellers.",
+    "steps": ["Design financial dashboard", "Implement transaction logging", "Add multi-currency support", "Ensure data encryption"]
+  },
+  {
+    "id": "tech-terminal",
+    "title": "Tech Terminal",
+    "description": "Minimalist command-line system for rapid neural path monitoring.",
+    "path": "projects/tech-terminal/index.js",
+    "tag": "Utility",
+    "stack": ["Node.js", "CLI"],
+    "details": "A command-line interface tool for system monitoring and rapid automation.",
+    "steps": ["Setup CLI framework", "Implement system probes", "Add chalk for styling", "Build distribution package"]
+  },
+  {
+    "id": "themed-dashboard",
+    "title": "Themed Dashboard",
+    "description": "A highly customizable dashboard with dynamic themes.",
+    "path": "projects/themed-dashboard/index.html",
+    "tag": "UI/UX",
+    "stack": ["HTML", "CSS", "JS"],
+    "details": "Demonstrates advanced CSS variable techniques for real-time theme switching.",
+    "steps": ["Create theme engine", "Design widget components", "Implement state management", "Add drag-and-drop support"]
+  },
+  {
+    "id": "vite-project",
+    "title": "Vite 8 Project",
+    "description": "Next-gen React application built with Vite 8 and Tailwind CSS.",
+    "path": "projects/vite-project/index.html",
+    "tag": "React",
+    "stack": ["React", "Vite", "Tailwind"],
+    "details": "A modern React starter kit optimized for lightning-fast development and deployment.",
+    "steps": ["Initialize Vite project", "Configure Tailwind CSS", "Build React components", "Optimize production build"]
+  },
+  {
+    "id": "chat-portfolio",
+    "title": "Chat Portfolio",
+    "description": "Interactive chat-based portfolio showcasing engineering skills.",
+    "path": "projects/chat-portfolio/index.html",
+    "tag": "Portfolio",
+    "stack": ["HTML", "CSS", "JS"],
+    "details": "An innovative way to explore a portfolio through a conversational AI interface.",
+    "steps": ["Design chat UI", "Implement message logic", "Integrate AI responses", "Add skill visualizations"]
+  },
+  {
+    "id": "profile-card",
+    "title": "Profile Card",
+    "description": "Premium profile card design with interactive glassmorphism effects.",
+    "path": "projects/profile-card/index.html",
+    "tag": "Design",
+    "stack": ["HTML", "CSS"],
+    "details": "A sleek, modern profile card using advanced CSS techniques like backdrop-filter.",
+    "steps": ["Create glassmorphism base", "Add hover animations", "Optimize for mobile", "Implement dark mode support"]
+  },
+  {
+    "id": "showcase-site",
+    "title": "Project Showcase Site",
+    "description": "Advanced multi-page site for showcasing complex engineering portfolios.",
+    "path": "projects/showcase-site/index.html",
+    "tag": "Web App",
+    "stack": ["HTML", "CSS", "Python"],
+    "details": "A fully-featured portfolio site with dynamic project loading and contact forms.",
+    "steps": ["Architect site structure", "Implement project loader", "Build contact form backend", "Add SEO optimizations"]
+  }
+]

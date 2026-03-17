@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Details | Nexus Ultimate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .detail-header {
+            padding: 120px 0 60px;
+            background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,1) 100%);
+        }
+        .project-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .meta-item {
+            background: rgba(255,255,255,0.05);
+            padding: 10px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .step-list {
+            list-style: none;
+            padding: 0;
+        }
+        .step-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color, #00ffff);
+            color: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .btn-view {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 30px;
+            padding: 16px 40px;
+            background: var(--primary, #0071e3);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 10px 25px rgba(0, 113, 227, 0.3);
+            cursor: none;
+        }
+        .btn-view:hover {
+            transform: translateY(-3px) scale(1.02);
+            background: #fff;
+            color: var(--primary, #0071e3);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+        }
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="dark-mode">
+    <!-- Premium Interaction Layers -->
+    <div class="data-stream-container" id="data-stream"></div>
+    <div id="scroll-progress"></div>
+
+    <nav id="navbar">
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <a href="index.html">Nexus<span class="cyber-glitch">ULTIMATE</span></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html#showcase">Back to Gallery</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="detail-header holographic">
+            <canvas id="neural-canvas"></canvas>
+            <div class="reveal-up"><span class="badge holographic" id="project-tag">Project Tag</span></div>
+            <h1 class="ultra-title" id="project-title">Project Title</h1>
+            <p id="project-description" style="max-width: 800px; font-size: 1.2rem; opacity: 0.8; margin-top: 20px; position: relative; z-index: 1;">
+                Detailed project description goes here.
+            </p>
+            <div class="project-meta" id="project-stack">
+                <!-- Stack items will be injected here -->
+            </div>
+            <a href="#" id="view-live" class="btn-view holographic" target="_blank">View Live Project <i class="fas fa-external-link-alt"></i></a>
+        </section>
+
+        <section class="content-grid">
+            <div class="main-content">
+                <h2 style="margin-bottom: 30px;">Design <span>Details</span></h2>
+                <div class="glass gradient-border" style="padding: 30px; line-height: 1.8;">
+                    <p id="project-details">
+                        Project design philosophy and technical details.
+                    </p>
+                </div>
+            </div>
+            <div class="sidebar">
+                <h2 style="margin-bottom: 30px;">Execution <span>Steps</span></h2>
+                <ul class="step-list" id="project-steps">
+                    <!-- Steps will be injected here -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <p class="copyright">&copy; 2026 Nexus Systems International. Minimalist by design.</p>
+                <p class="powered-by">Powered by <span>Mey Astra</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Data Stream Background Initialization
+            const streamContainer = document.getElementById('data-stream');
+            if (streamContainer) {
+                const columns = Math.floor(window.innerWidth / 30);
+                for (let i = 0; i < columns; i++) {
+                    const col = document.createElement('div');
+                    col.className = 'data-column';
+                    col.style.left = (i * 30) + 'px';
+                    col.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                    col.style.animationDelay = (Math.random() * 5) + 's';
+                    let binary = '';
+                    for (let j = 0; j < 50; j++) { binary += Math.round(Math.random()); }
+                    col.innerText = binary;
+                    streamContainer.appendChild(col);
+                }
+            }
+
+            // Neural Network Engine
+            const canvas = document.getElementById('neural-canvas');
+            if (canvas) {
+                const ctx = canvas.getContext('2d');
+                let particles = [];
+                function res() { canvas.width = canvas.parentElement.offsetWidth; canvas.height = canvas.parentElement.offsetHeight; }
+                window.addEventListener('resize', res); res();
+                class P {
+                    constructor() { this.x = Math.random()*canvas.width; this.y = Math.random()*canvas.height; this.v = {x:(Math.random()-0.5)*0.5, y:(Math.random()-0.5)*0.5}; }
+                    up() { this.x+=this.v.x; this.y+=this.v.y; if(this.x<0||this.x>canvas.width)this.v.x*=-1; if(this.y<0||this.y>canvas.height)this.v.y*=-1; }
+                    dr() { ctx.beginPath(); ctx.arc(this.x,this.y,1,0,Math.PI*2); ctx.fillStyle='rgba(0,113,227,0.5)'; ctx.fill(); }
+                }
+                for(let i=0;i<30;i++) particles.push(new P());
+                function anim() {
+                    ctx.clearRect(0,0,canvas.width,canvas.height);
+                    particles.forEach(p=>{
+                        p.up(); p.dr();
+                        particles.forEach(p2=>{
+                            let d = Math.sqrt((p.x-p2.x)**2+(p.y-p2.y)**2);
+                            if(d<100) { ctx.beginPath(); ctx.strokeStyle=`rgba(0,113,227,${1-d/100})`; ctx.moveTo(p.x,p.y); ctx.lineTo(p2.x,p2.y); ctx.stroke(); }
+                        });
+                    });
+                    requestAnimationFrame(anim);
+                }
+                anim();
+            }
+
+            const params = new URLSearchParams(window.location.search);
+            const projectId = params.get('id');
+
+            const projects = [
+              {
+                "id": "ai-tech",
+                "title": "AI Tech Website",
+                "description": "Premium AI-driven technology interface featuring real-time neural animations and futuristic glassmorphism components.",
+                "path": "projects/ai-tech/index.html",
+                "tag": "AI Tech",
+                "stack": ["HTML5", "CSS3", "JavaScript", "GSAP"],
+                "details": "This flagship project demonstrates a high-performance landing page for AI enterprises. It features a custom cursor engine, staggered reveal animations, and a fully responsive grid system designed for maximum engagement.",
+                "steps": ["Architected the visual identity", "Implemented the GSAP-powered animation engine", "Developed the dynamic glassmorphism UI kit", "Optimized for sub-second load times"]
+              },
+              {
+                "id": "3d-maze",
+                "title": "3D Maze Escape",
+                "description": "Procedurally generated 3D labyrinth with immersive spatial audio and advanced light-mapping technology.",
+                "path": "projects/3d-maze/index.html",
+                "tag": "Game Dev",
+                "stack": ["WebGL", "Three.js", "Spatial Audio"],
+                "details": "A technical masterpiece in browser-based gaming. The engine generates a unique maze every session, calculating complex collision physics and real-time shadows to create a truly atmospheric escape experience.",
+                "steps": ["Engineered the recursive backtracking maze generator", "Integrated Three.js for hardware-accelerated rendering", "Developed first-person physics controller", "Implemented 3D spatial soundscapes"]
+              },
+              {
+                "id": "fps-shooter",
+                "title": "FPS Shooter 360",
+                "description": "High-fidelity first-person shooter engine built for the web, featuring ray-casting and volumetric lighting.",
+                "path": "projects/fps-shooter/index.html",
+                "tag": "WebGL",
+                "stack": ["HTML5", "GLSL", "CANNON.js"],
+                "details": "Pushing the boundaries of WebGL, this project features a custom-built FPS engine with weapon sway, projectile physics, and dynamic lighting. Designed for high-performance browser environments.",
+                "steps": ["Built the 3D ray-casting engine", "Implemented physics with CANNON.js", "Designed retro-futuristic voxel assets", "Optimized draw calls for 60FPS performance"]
+              },
+              {
+                "id": "it-showcase",
+                "title": "IT Project Showcase",
+                "description": "Advanced multi-dimensional portfolio hub designed to visualize complex engineering project metrics and performance.",
+                "path": "projects/it-showcase/index.html",
+                "tag": "Showcase",
+                "stack": ["React", "D3.js", "Tailwind"],
+                "details": "A sophisticated dashboard system that aggregates engineering data and displays it through interactive D3.js visualizations. Features deep-filtering capabilities and real-time state management.",
+                "steps": ["Designed the modular grid architecture", "Integrated D3.js for data visualization", "Developed the dynamic filtering engine", "Optimized for high-density data rendering"]
+              },
+              {
+                "id": "nextgen-portal",
+                "title": "NextGen IT Portal",
+                "description": "Enterprise-grade infrastructure management portal with real-time system monitoring and neural pathing.",
+                "path": "projects/nextgen-portal/index.html",
+                "tag": "Infrastructure",
+                "stack": ["Node.js", "Socket.io", "Chart.js"],
+                "details": "A control center for modern IT infrastructure. It provides real-time telemetry, server health monitoring, and automated deployment logs through a secure, encrypted WebSocket connection.",
+                "steps": ["Architected the real-time telemetry system", "Developed the WebSocket bridge for live data", "Implemented secure admin authentication", "Built the responsive monitoring dashboard"]
+              },
+              {
+                "id": "payment-store",
+                "title": "Payment Store",
+                "description": "Ultra-secure e-commerce transaction platform with multi-layered encryption and seamless UX flow.",
+                "path": "projects/payment-store/index.html",
+                "tag": "E-Commerce",
+                "stack": ["Stripe API", "React", "Node.js"],
+                "details": "A high-conversion e-commerce template focusing on checkout security and performance. Features Stripe integration, cart persistence, and an adaptive layout for global commerce.",
+                "steps": ["Integrated multi-provider payment gateways", "Developed the persistent cart logic", "Implemented end-to-end transaction security", "Optimized the mobile checkout funnel"]
+              },
+              {
+                "id": "reseller",
+                "title": "Reseller Platform",
+                "description": "Automated B2B commerce ecosystem for digital product scaling and reseller management.",
+                "path": "projects/reseller/index.html",
+                "tag": "Commerce",
+                "stack": ["Capacitor", "Express", "MongoDB"],
+                "details": "A platform for managing reseller activities and automated product delivery.",
+                "steps": ["Architected the distributed reseller database", "Developed the automated license engine", "Built the Capacitor-powered mobile interface", "Integrated real-time sales analytics"]
+              },
+              {
+                "id": "seller-payment",
+                "title": "Seller Payment Site",
+                "description": "Financial transparency dashboard for independent sellers with deep-dive transaction analytics.",
+                "path": "projects/seller-payment/index.html",
+                "tag": "Finance",
+                "stack": ["React", "Redux", "Python"],
+                "details": "Dedicated to financial clarity, this site allows sellers to track every cent. It features multi-currency support, tax reporting, and instant withdrawal capabilities through a streamlined UI.",
+                "steps": ["Developed the transaction reconciliation engine", "Implemented multi-currency conversion APIs", "Built the interactive financial reporting tools", "Optimized data security protocols"]
+              },
+              {
+                "id": "tech-terminal",
+                "title": "Tech Terminal",
+                "description": "Command-line interface for system automation and neural monitoring, built for the modern developer.",
+                "path": "projects/tech-terminal/index.js",
+                "tag": "Utility",
+                "stack": ["Node.js", "Chalk", "Commander"],
+                "details": "A powerful CLI tool that simplifies system diagnostics and automation tasks. It provides a beautiful, color-coded terminal interface for monitoring server health and deployment pipelines.",
+                "steps": ["Developed the core CLI framework", "Implemented system health probes", "Added beautiful terminal styling with Chalk", "Built the extensible plugin architecture"]
+              },
+              {
+                "id": "themed-dashboard",
+                "title": "Themed Dashboard",
+                "description": "Dynamic UI ecosystem with real-time theme switching and modular widget architecture.",
+                "path": "projects/themed-dashboard/index.html",
+                "tag": "UI/UX",
+                "stack": ["CSS Variables", "JS Modules", "HTML5"],
+                "details": "A showcase of modern CSS capabilities. This dashboard allows users to customize their entire environment with zero-latency theme switching, utilizing CSS custom properties and persistent storage.",
+                "steps": ["Engineered the real-time theme engine", "Developed the modular widget system", "Implemented persistent user preferences", "Optimized layout for varying viewports"]
+              },
+              {
+                "id": "vite-project",
+                "title": "Vite 8 Project",
+                "description": "Next-generation React framework starter kit optimized for extreme performance and developer velocity.",
+                "path": "projects/vite-project/index.html",
+                "tag": "React",
+                "stack": ["React 19", "Vite 8", "Tailwind 4"],
+                "details": "The ultimate starter kit for high-performance React applications. Featuring the latest Vite 8 engine and Tailwind 4, it provides sub-millisecond HMR and highly optimized production builds.",
+                "steps": ["Configured the Vite 8 build pipeline", "Integrated Tailwind 4 with JIT engine", "Implemented best-practice React patterns", "Optimized for 100/100 Lighthouse scores"]
+              },
+              {
+                "id": "chat-portfolio",
+                "title": "Chat Portfolio",
+                "description": "Conversational AI portfolio interface that allows users to interact with my skills through a neural chat engine.",
+                "path": "projects/chat-portfolio/index.html",
+                "tag": "Portfolio",
+                "stack": ["AI Integration", "Socket.io", "CSS3"],
+                "details": "Moving beyond static portfolios, this interactive chat app uses AI logic to answer questions about my experience, skills, and projects in real-time. A truly unique recruitment tool.",
+                "steps": ["Developed the conversational UI/UX", "Implemented the logic for AI-driven responses", "Built the real-time message handler", "Integrated skill-visualization modules"]
+              },
+              {
+                "id": "profile-card",
+                "title": "Profile Card",
+                "description": "Ultra-clean profile visualization with premium glassmorphism effects and interactive hover states.",
+                "path": "projects/profile-card/index.html",
+                "tag": "Design",
+                "stack": ["HTML5", "CSS3", "SVG"],
+                "details": "A masterclass in modern design. This profile card utilizes advanced backdrop filters, subtle gradients, and interactive SVG elements to create a premium digital business card experience.",
+                "steps": ["Crafted the glassmorphism visual design", "Implemented advanced CSS hover interactions", "Optimized for pixel-perfect mobile display", "Integrated smooth entrance animations"]
+              },
+              {
+                "id": "showcase-site",
+                "title": "Project Showcase Site",
+                "description": "Multi-page engineering portal for visualizing large-scale project ecosystems and technical specifications.",
+                "path": "projects/showcase-site/index.html",
+                "tag": "Web App",
+                "stack": ["Python", "JavaScript", "SEO"],
+                "details": "A comprehensive portal for professional engineering teams. Features dynamic project loading, deep-link navigation, and advanced SEO optimization to ensure maximum reach for technical content.",
+                "steps": ["Architected the multi-page portal system", "Developed the dynamic project loader", "Implemented SEO and meta-tag management", "Built the responsive project-detail template"]
+              }
+            ];
+
+            const project = projects.find(p => p.id === projectId);
+            if (project) {
+                document.title = `${project.title} | Nexus Ultimate`;
+                document.getElementById('project-title').innerHTML = project.title.replace(' ', ' <span>') + '</span>';
+                document.getElementById('project-tag').textContent = project.tag;
+                document.getElementById('project-description').textContent = project.description;
+                document.getElementById('project-details').textContent = project.details;
+                document.getElementById('view-live').href = project.path;
+
+                const stackContainer = document.getElementById('project-stack');
+                project.stack.forEach(tech => {
+                    const span = document.createElement('span');
+                    span.className = 'meta-item';
+                    span.textContent = tech;
+                    stackContainer.appendChild(span);
+                });
+
+                const stepsContainer = document.getElementById('project-steps');
+                project.steps.forEach((step, index) => {
+                    const li = document.createElement('li');
+                    li.className = 'step-item reveal-up';
+                    li.innerHTML = `
+                        <div class="step-number">${index + 1}</div>
+                        <div class="step-text">${step}</div>
+                    `;
+                    stepsContainer.appendChild(li);
+                });
+            } else {
+                window.location.href = 'index.html';
+            }
+        });
+    </script>
+</body>
+</html>
